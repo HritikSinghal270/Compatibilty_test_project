@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add New User</h2>
+<form action="{{ url_for('add_user') }}" method="POST">
+    <!-- Name Field -->
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required autocomplete="off">
+    </div>
+
+    <!-- Age Group Dropdown -->
+    <div class="form-group">
+        <label for="age_group">Age Group:</label>
+        <select id="age_group" name="age_group" required>
+            {% for age_group in age_groups %}
+            <option value="{{ age_group }}">{{ age_group }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Hobby Dropdown -->
+    <div class="form-group">
+        <label for="hobby">Select a Hobby:</label>
+        <select id="hobby" name="hobby" required>
+            {% for hobby in hobbies %}
+            <option value="{{ hobby }}">{{ hobby }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Preference Dropdown -->
+    <div class="form-group">
+        <label for="preference">Select a Preference:</label>
+        <select id="preference" name="preference" required>
+            {% for preference in preferences %}
+            <option value="{{ preference }}">{{ preference }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Centered Submit Button -->
+    <div class="form-group button-container">
+        <button type="submit">Add User</button>
+    </div>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Compatibility Result</h2>
+<p><strong>{{ admin.name }}</strong> and <strong>{{ user.name }}</strong></p>
+<p>{{ compatibility }}</p>
+<p>Flames Score: {{ flames }}</p>
+
+<a href="{{ url_for('index') }}">Back to Home</a>
+{% endblock %}
+
+

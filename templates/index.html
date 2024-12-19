@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Users List</h2>
+<div class="container">
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Actions</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ 'Admin' if user.is_admin else 'User' }}</td>
+        <td>
+            {% if not user.is_admin %}
+            <form action="{{ url_for('test') }}" method="POST" style="display:inline;">
+                <input type="hidden" name="admin_id" value="1"> <!-- Admin ID hardcoded -->
+                <input type="hidden" name="user_id" value="{{ user.id }}">
+                <button type="submit">Test with Admin</button>
+            </form>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}
