@@ -9,8 +9,7 @@ def calculate_flames_percentage(name1, name2):
     Returns:
         str: Compatibility percentage and relationship type
     """
-    # print('hello check 1')
-    # print(type(name1))
+
     # Remove spaces and convert to lowercase
     name1 = name1.replace(" ", "").lower()
     name2 = name2.replace(" ", "").lower()
