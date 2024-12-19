@@ -51,9 +51,7 @@ def calculate_compatibility(user1, user2):
     # Collect all unique keys from both users
     all_keys = set(user1.keys()).union(set(user2.keys())) - {"name","id","is_admin"} 
     matching_attributes = 0
-    print(user1)
-    print(user2)
-    print(all_keys)
+    
     for key in all_keys:
         # Check if both users have the key and the values match
         if key in user1 and key in user2 and user1[key] == user2[key]:
